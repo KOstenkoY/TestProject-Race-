@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TouchDetection : InputSystem
 {
-    public void OnMovePressed(bool isPressed)
+    public void OnMovePressed()
     {
-        MovePressed(isPressed);
+        MovePressed();
     }
 
-    public void OnStopButtonPressed(bool isPressed)
+    public void OnStopButtonPressed()
     {
-        StopPressed(isPressed);
+        StopPressed();
     }
 }

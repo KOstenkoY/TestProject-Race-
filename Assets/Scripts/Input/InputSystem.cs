@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class InputSystem : MonoBehaviour
 {
-    private static event Action<bool> OnMove;
-    private static event Action<bool> OnStop;
+    public static event Action OnMove;
+    public static event Action OnStop;
 
-    protected void MovePressed(bool isPressed)
+    protected void MovePressed()
     {
-        OnMove?.Invoke(isPressed);
+        OnMove?.Invoke();
     }
 
-    protected void StopPressed(bool isPressed)
+    protected void StopPressed()
     {
-        OnStop?.Invoke(isPressed);
+        OnStop?.Invoke();
     }
 }
