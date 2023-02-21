@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 15053766}
   - component: {fileID: 15053765}
+  - component: {fileID: 15053767}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -205,6 +206,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &15053767
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15053764}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -25.059862, y: -1.7958875}
+  - {x: -22.168058, y: -0.41220593}
+  - {x: -21.131878, y: -0.15776998}
+  - {x: -20.15355, y: 0.28538942}
+  - {x: -19.256763, y: 0.7000229}
+  - {x: -18.616045, y: 0.7706525}
+  - {x: -17.897697, y: 0.7607806}
+  - {x: -17.202343, y: 0.6486771}
+  - {x: -16.346605, y: 0.23521098}
+  - {x: -15.587229, y: -0.3489189}
+  - {x: -14.967917, y: -0.91952485}
+  - {x: -14.568845, y: -1.5424541}
+  - {x: -14.045764, y: -1.9877434}
+  - {x: -13.095358, y: -2.1148853}
+  - {x: -11.998441, y: -2.2491014}
+  - {x: -10.910705, y: -2.2428417}
+  - {x: -10.164529, y: -2.1264195}
+  - {x: -9.4104, y: -1.7464206}
+  - {x: -8.575786, y: -1.0526588}
+  - {x: -7.901095, y: -0.49893117}
+  - {x: -6.985686, y: -0.08475298}
+  - {x: -6.1881094, y: 0.6552995}
+  - {x: -5.8006816, y: 1.15451}
+  - {x: -4.9561357, y: 1.6272273}
+  - {x: -3.991951, y: 1.7457722}
+  - {x: -3.1741745, y: 1.7213309}
+  - {x: -2.4498374, y: 1.4093575}
+  - {x: -2.0473871, y: 0.91679007}
+  - {x: -1.6554687, y: 0.285559}
+  - {x: -0.8873497, y: -0.32376367}
+  - {x: -0.04072714, y: -1.0525827}
+  - {x: 0.44867325, y: -1.7479224}
+  - {x: 0.9760265, y: -2.1657238}
+  - {x: 1.8304899, y: -2.311706}
+  - {x: 2.961917, y: -2.3029766}
+  - {x: 3.798921, y: -1.795351}
+  - {x: 4.795061, y: -1.1905551}
+  - {x: 5.476967, y: -0.8556309}
+  - {x: 6.6572375, y: -0.7218885}
+  - {x: 8.168596, y: -0.7353013}
+  - {x: 8.742946, y: -1.0161896}
+  - {x: 9.953748, y: -1.5001023}
+  - {x: 10.668195, y: -1.7985044}
+  - {x: 11.737529, y: -1.2519188}
+  - {x: 12.4949045, y: -0.530891}
+  - {x: 13.455189, y: 0.17578816}
+  - {x: 14.885552, y: 0.8541297}
+  - {x: 16.482248, y: 1.2921664}
+  - {x: 18.08312, y: 1.8174808}
+  - {x: 19.377422, y: 2.0465696}
+  - {x: 19.997839, y: 1.4981234}
+  - {x: 20.982552, y: 0.58831656}
+  - {x: 21.896568, y: -0.01438266}
+  - {x: 22.820536, y: -0.47949976}
+  - {x: 24.204908, y: -1.6635411}
+  - {x: 25.099209, y: -2.157775}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &138208902
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,8 +330,8 @@ WheelJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
+  m_Anchor: {x: 0, y: 0.7}
+  m_ConnectedAnchor: {x: 0.275, y: -0.65}
   m_Suspension:
     m_DampingRatio: 0.7
     m_Frequency: 2
@@ -275,7 +352,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -462,7 +539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102217663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1, y: -0.62, z: -1}
+  m_LocalPosition: {x: -1.1, y: -0.65, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1430869077}
@@ -482,8 +559,8 @@ WheelJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
+  m_Anchor: {x: 0, y: 0.7}
+  m_ConnectedAnchor: {x: -0.275, y: -0.65}
   m_Suspension:
     m_DampingRatio: 0.7
     m_Frequency: 2
@@ -504,7 +581,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -626,7 +703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430869075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.2, y: 2.19, z: 0}
+  m_LocalPosition: {x: -18.31, y: 1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1441046912}
