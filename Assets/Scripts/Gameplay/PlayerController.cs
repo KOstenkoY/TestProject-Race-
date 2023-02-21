@@ -7,18 +7,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D _backWheelRigidbody = null;
     [SerializeField] Rigidbody2D _frontWheelRigidbody = null;
 
-    [SerializeField] private float _speed = 50f;
-
-    [SerializeField] private float _delayBeforeDeath = 1.5f;
+    [SerializeField] private float _speed = 2750f;
 
     private int _direction = 1;
 
     private bool _isMove = false;
     private bool _isStop = false;
-
-    private const string _groundTag = "Ground";
-
-    private Coroutine _deathCoroutine;
 
     private void OnEnable()
     {
