@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -6,15 +7,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D _backWheelRigidbody = null;
     [SerializeField] Rigidbody2D _frontWheelRigidbody = null;
 
-    [SerializeField] private float _speed = 250f;
-    [SerializeField] private float _carTorque = 10f;
+    [SerializeField] private float _speed = 50f;
+
+    [SerializeField] private float _delayBeforeDeath = 1.5f;
 
     private int _direction = 1;
 
-    private float _movement;
-
     private bool _isMove = false;
     private bool _isStop = false;
+
+    private const string _groundTag = "Ground";
+
+    private Coroutine _deathCoroutine;
 
     private void OnEnable()
     {
@@ -45,8 +49,8 @@ public class PlayerController : MonoBehaviour
     
     private void SetTorque()
     {
-        _frontWheelRigidbody.AddTorque(_speed * _direction * Time.fixedDeltaTime);
-        _backWheelRigidbody.AddTorque(_speed * _direction * Time.fixedDeltaTime);
+        _frontWheelRigidbody.AddTorque(_speed * _direction * Time.deltaTime);
+        _backWheelRigidbody.AddTorque(_speed * _direction * Time.deltaTime);
 
     }
 

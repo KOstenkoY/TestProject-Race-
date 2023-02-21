@@ -8,6 +8,7 @@ public class InputSystem : MonoBehaviour
 
     public static event Action OnRestartGame;
     public static event Action OnExitGame;
+    public static event Action<bool> OnSetPause;
 
     protected void MovePressed(bool isPressed)
     {
@@ -27,5 +28,10 @@ public class InputSystem : MonoBehaviour
     protected void ExitGame()
     {
         OnExitGame?.Invoke();
+    }
+
+    protected void SetPause(bool isPressed)
+    {
+        OnSetPause?.Invoke(isPressed);
     }
 }

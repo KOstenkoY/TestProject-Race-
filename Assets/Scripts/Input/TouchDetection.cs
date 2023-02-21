@@ -23,4 +23,9 @@ public class TouchDetection : InputSystem
     {
         ExitGame();
     }
+
+    public void OnPauseButtonPressed(bool isPressed)
+    {
+        SetPause(isPressed);
+    }
 }

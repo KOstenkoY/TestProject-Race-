@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject _gameplayUI = null;
     [SerializeField] private GameObject _endGameUI = null;
+    [SerializeField] private GameObject _pauseUI = null;
 
     // our created player
     private GameObject _currentPlayer;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         FinishGame.OnFinishGame += EndGame;
+        TouchDetection.OnSetPause += SetPause;
         TouchDetection.OnRestartGame += RestartGame;
         TouchDetection.OnExitGame += Exit;
     }
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         FinishGame.OnFinishGame -= EndGame;
+        TouchDetection.OnSetPause -= SetPause;
         TouchDetection.OnRestartGame -= RestartGame;
         TouchDetection.OnExitGame -= Exit;
     }
@@ -41,6 +44,9 @@ public class GameManager : MonoBehaviour
     {
         if (_endGameUI.activeSelf)
             _endGameUI.SetActive(false);
+
+        if (_pauseUI.activeSelf)
+            _pauseUI.SetActive(false);
 
         _gameplayUI.SetActive(true);
 
@@ -71,5 +77,29 @@ public class GameManager : MonoBehaviour
             _gameplayUI.SetActive(false);
 
         _endGameUI.SetActive(true);
+    }
+
+    private void SetPause(bool isPause)
+    {
+        if (isPause)
+        {
+            Time.timeScale = 0.0f;
+
+            if (_gameplayUI.activeSelf)
+                _gameplayUI.SetActive(false);
+
+            if (_endGameUI.activeSelf)
+                _endGameUI.SetActive(false);
+
+            _pauseUI.SetActive(true);
+        }
+        else
+        {
+            _pauseUI.SetActive(false);
+
+            _gameplayUI.SetActive(true);
+
+            Time.timeScale = 1.0f;
+        }
     }
 }
