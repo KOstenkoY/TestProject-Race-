@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
 
     private float _movement;
 
-    private bool _move = false;
-    private bool _stop = false;
+    private bool _isMove = false;
+    private bool _isStop = false;
 
     private void OnEnable()
     {
@@ -29,23 +29,32 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void Move()
+    private void Move(bool isMove)
     {
-        _direction = -1;
-        SetTorque(_speed, _direction);
-    }
-    
-    private void Stop()
-    {
-        _direction = 1;
-        SetTorque(_speed, _direction);
-    }
-    
-    private void SetTorque(float speed, int direction)
-    {
-        _frontWheelRigidbody.AddTorque(_speed * direction);
-        _backWheelRigidbody.AddTorque(_speed * direction);
+        _isMove = isMove;
 
-        //_carRigidbody.AddTorque(speed);
+        _direction = -1;
+    }
+    
+    private void Stop(bool isStop)
+    {
+        _isStop = isStop;
+
+        _direction = 1;
+    }
+    
+    private void SetTorque()
+    {
+        _frontWheelRigidbody.AddTorque(_speed * _direction * Time.fixedDeltaTime);
+        _backWheelRigidbody.AddTorque(_speed * _direction * Time.fixedDeltaTime);
+
+    }
+
+    private void Update()
+    {
+        if (_isMove || _isStop)
+        {
+            SetTorque();
+        }
     }
 }

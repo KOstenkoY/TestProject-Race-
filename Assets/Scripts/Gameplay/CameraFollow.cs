@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     // our car
-    [SerializeField] private Transform _player = null;
+    private Transform _player = null;
 
     [SerializeField] private float _followSpeed = 3f;
 
@@ -13,8 +13,11 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 _offset;
 
-    private void Awake()
+    // our target
+    public void SetPlayer(GameObject player)
     {
+        _player = player.transform;
+
         transform.position = _startPosition;
 
         _offset = transform.position - _player.position;
